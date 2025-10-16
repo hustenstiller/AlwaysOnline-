@@ -2,11 +2,12 @@
 
 import logging
 import asyncio
-from login import client
+from login import init_client
 from telethon.tl.functions.account import UpdateStatusRequest
 from data import delay
 
 async def main():
+    client = await init_client()
     if await client.is_user_authorized():
         logging.info("You are now AlwaysOnline™, Yah!")
         while True:
